@@ -3,7 +3,8 @@ import importlib
 modules = [
     "start", 
     "help" ,
-    "echo",
+    "other_handlers",
+    "settings_handler"
 ]
 
 routers = []
