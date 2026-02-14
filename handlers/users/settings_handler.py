@@ -1,31 +1,41 @@
-from pprint import pprint as print
+from aiogram import types, Router, F
+from aiogram.fsm.context import FSMContext
 
 
-from aiogram import  types , Router, F, Bot
+from states.language_state import Language
+from keyboards.default.settings_keyboards import (
+    setting_menu_en_keyboard,
+    setting_menu_ru_keyboard,
+    setting_menu_uz_keyboard,
+    change_lang_keyboard
+)
+
+
 
 router = Router()
 
-# @router.message(F.photo)
-# async def save_photo(message: types.Message, bot):
-#     # Eng yuqori sifatli rasmni olish
-#     photo = message.photo[-1]
-    
-#     # Faylni yuklab olish
-#     # file = await bot.get_file(photo.file_id)
-#     # await bot.download_file(file.file_path)
-    
-#     await message.reply("✅ Rasm saqlandi!")
-#     await message.answer(photo)
-   
-        
-@router.message()
-async def echo_handler(message: types.Message) -> None:
-    try:
-        # Send a copy of the received message
-        await message.send_copy(chat_id=message.chat.id)
-    except TypeError:
-        # But not all the types is supported to be copied so need to handle it
-        await message.answer("Nice try!")
-        
-        
 
+@router.message(F.text == "⚙️ Sozlamalar")
+async def setting_uz(message: types.Message):
+    await message.answer("Sozlamalar", reply_markup=setting_menu_uz_keyboard)
+
+@router.message(F.text == "⚙️ Настройки")
+async def setting_ru(message: types.Message):
+    await message.answer("Настройки", reply_markup=setting_menu_ru_keyboard)
+
+@router.message(F.text == "⚙️ Settings")
+async def setting_eng(message: types.Message):
+    await message.answer("Settings", reply_markup=setting_menu_en_keyboard)
+
+
+@router.message(F.text == "🌐 Tilni o'zgartirish")
+async def change_lang_uz(message: types.Message, state: FSMContext):
+    await message.answer("Tilni tanlang", reply_markup=change_lang_keyboard)
+
+@router.message(F.text == "🌐 Change language")
+async def change_lang_uz(message: types.Message, state: FSMContext):
+    await message.answer("Select a language", reply_markup=change_lang_keyboard)
+
+@router.message(F.text == "🌐 Изменить язык")
+async def change_lang_uz(message: types.Message, state: FSMContext):
+    await message.answer("Выберите язык", reply_markup=change_lang_keyboard)

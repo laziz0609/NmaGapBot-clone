@@ -24,9 +24,40 @@ from keyboards.default.menu_keyboards import (
 router = Router()
 
 
+@router.message(Command("start"), Language.uz)
+async def start_uz(message: types.Message, state: FSMContext):
+    await message.answer(f"Salom <b>{message.from_user.first_name}</b>", reply_markup=main_menu_uz, parse_mode="html")
+
+@router.message(Command("start"), Language.ru)
+async def start_uz(message: types.Message, state: FSMContext):
+    await message.answer(f"Привет <b>{message.from_user.first_name}</b>", reply_markup=main_menu_ru, parse_mode="html")
+
+@router.message(Command("start"), Language.eng)
+async def start_uz(message: types.Message, state: FSMContext):
+    await message.answer(f"Hello <b>{message.from_user.first_name}</b>", reply_markup=main_menu_en, parse_mode="html")
+
 
 @router.message(Command("start"))
-async def cmd_start(message: types.Message, state: FSMContext):
+async def start(message: types.Message, state: FSMContext):
+    check_user = await database.check_user(message.from_user.id)
+    if check_user:
+        if check_user.get("lang"):
+            lang = check_user["lang"]
+
+            if lang == "uz":
+                await state.set_state(Language.uz)
+                await message.answer(f"Salom ,<b>{message.from_user.first_name}</b>", reply_markup=main_menu_uz, parse_mode="html")
+            
+            elif lang == "ru":
+                await state.set_state(Language.ru)
+                await message.answer(f"Привет ,<b>{message.from_user.first_name}</b>", reply_markup=main_menu_ru, parse_mode="html")
+
+            elif lang == "eng":
+                await state.set_state(Language.eng)
+                await message.answer(f"Hello ,<b>{message.from_user.first_name}</b>", reply_markup=main_menu_en, parse_mode="html")
+
+            return
+        
     await message.answer("Iltimos tilni tanlang", reply_markup=choice_lang)
     await state.set_state(StartState.choice_lang)
 
@@ -74,7 +105,7 @@ async def send_num_handler(message: types.Message, state: FSMContext):
     user_id = message.from_user.id
     phone_num = contact.phone_number 
 
-    await database.add_user(user_id=user_id, phone_num=phone_num)
+    await database.add_user(user_id=user_id, phone_num=phone_num, lang=lang)
     await state.clear()
 
     if lang == "uz":
