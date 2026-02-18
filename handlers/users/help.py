@@ -1,7 +1,8 @@
-from aiogram import  types , Router
+from aiogram import types, Router
 
 
 roter = Router()
+
 
 @roter.message()
 async def echo(message: types.Message):

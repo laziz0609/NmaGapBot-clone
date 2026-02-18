@@ -1,11 +1,6 @@
 import importlib
 
-modules = [
-    "start", 
-    "help" ,
-    "other_handlers",
-    "settings_handler"
-]
+modules = ["start", "help", "other_handlers", "settings_handler"]
 
 routers = []
 

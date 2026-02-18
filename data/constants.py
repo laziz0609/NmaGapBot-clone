@@ -1,7 +1,4 @@
-
-
 class Constants:
-        
     orders_en = "You don't have any orders yet"
     about_us_en = """
 We are located here\n.
@@ -21,14 +18,15 @@ Shu yerda joylashganmiz\n.
 Elektron pochta: abror4work@gmail.com
     """
 
-
-
-
-    
-
     text_uz = "Tilni tanlang"
 
-    main_menu_uz = ["🛍 Buyurtma berish", "📦 Buyurtmalarim", "ℹ️ Biz haqimizda", "⚙️ Sozlamalar", "✍️ Fikr qoldirish"]
+    main_menu_uz = [
+        "🛍 Buyurtma berish",
+        "📦 Buyurtmalarim",
+        "ℹ️ Biz haqimizda",
+        "⚙️ Sozlamalar",
+        "✍️ Fikr qoldirish",
+    ]
 
     settings_menu_uz = ["🌐 Tilni o'zgartirish", "📞 Telefon raqamingizni o'zgartiring"]
 

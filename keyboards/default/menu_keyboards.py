@@ -4,62 +4,49 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 main_menu_uz = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="🛍 Buyurtma berish", web_app=WebAppInfo(url="https://uzum.uz/uz"))
+            KeyboardButton(
+                text="🛍 Buyurtma berish", web_app=WebAppInfo(url="https://uzum.uz/uz")
+            )
         ],
         [
             KeyboardButton(text="📦 Buyurtmalarim"),
-            KeyboardButton(text="⚙️ Sozlamalar",)
+            KeyboardButton(
+                text="⚙️ Sozlamalar",
+            ),
         ],
         [
             KeyboardButton(text="ℹ️ Biz haqimizda"),
-            KeyboardButton(text="✍️ Fikr qoldirish")
-        ]
-    
+            KeyboardButton(text="✍️ Fikr qoldirish"),
+        ],
     ],
-    resize_keyboard=True
+    resize_keyboard=True,
 )
 
 main_menu_ru = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton(
-                text="🛍 Сделать заказ",
-                web_app=WebAppInfo(url="https://uzum.uz/ru")
+                text="🛍 Сделать заказ", web_app=WebAppInfo(url="https://uzum.uz/ru")
             )
         ],
-        [
-            KeyboardButton(text="📦 Мои заказы"),
-            KeyboardButton(text="⚙️ Настройки")
-        ],
-        [
-            KeyboardButton(text="ℹ️ О нас"),
-            KeyboardButton(text="✍️ Оставить отзыв")
-        ]
+        [KeyboardButton(text="📦 Мои заказы"), KeyboardButton(text="⚙️ Настройки")],
+        [KeyboardButton(text="ℹ️ О нас"), KeyboardButton(text="✍️ Оставить отзыв")],
     ],
-    resize_keyboard=True
+    resize_keyboard=True,
 )
 
 main_menu_en = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton(
-                text="🛍 Place an order",
-                web_app=WebAppInfo(url="https://uzum.uz")
+                text="🛍 Place an order", web_app=WebAppInfo(url="https://uzum.uz")
             )
         ],
-        [
-            KeyboardButton(text="📦 My orders"),
-            KeyboardButton(text="⚙️ Settings")
-        ],
-        [
-            KeyboardButton(text="ℹ️ About us"),
-            KeyboardButton(text="✍️ Leave feedback")
-        ]
+        [KeyboardButton(text="📦 My orders"), KeyboardButton(text="⚙️ Settings")],
+        [KeyboardButton(text="ℹ️ About us"), KeyboardButton(text="✍️ Leave feedback")],
     ],
-    resize_keyboard=True
+    resize_keyboard=True,
 )
-
-
 
 
 texts = {
@@ -70,15 +57,14 @@ texts = {
             "📦 Buyurtmalarim",
             "ℹ️ Biz haqimizda",
             "⚙️ Sozlamalar",
-            "✍️ Fikr qoldirish"
+            "✍️ Fikr qoldirish",
         ],
         "settings_menu": [
             "🌐 Tilni o'zgartirish",
-            "📞 Telefon raqamingizni o'zgartiring"
+            "📞 Telefon raqamingizni o'zgartiring",
         ],
-        "back": "⬅️ Orqaga"
+        "back": "⬅️ Orqaga",
     },
-
     "ru": {
         "text": "Выберите язык",
         "main_menu": [
@@ -86,15 +72,11 @@ texts = {
             "📦 Мои заказы",
             "ℹ️ О нас",
             "⚙️ Настройки",
-            "✍️ Оставить отзыв"
+            "✍️ Оставить отзыв",
         ],
-        "settings_menu": [
-            "🌐 Изменить язык",
-            "📞 Изменить номер телефона"
-        ],
-        "back": "⬅️ Назад"
+        "settings_menu": ["🌐 Изменить язык", "📞 Изменить номер телефона"],
+        "back": "⬅️ Назад",
     },
-
     "en": {
         "text": "Select language",
         "main_menu": [
@@ -102,14 +84,9 @@ texts = {
             "📦 My orders",
             "ℹ️ About us",
             "⚙️ Settings",
-            "✍️ Leave feedback"
+            "✍️ Leave feedback",
         ],
-        "settings_menu": [
-            "🌐 Change language",
-            "📞 Change phone number"
-        ],
-        "back": "⬅️ Back"
-    }
+        "settings_menu": ["🌐 Change language", "📞 Change phone number"],
+        "back": "⬅️ Back",
+    },
 }
-
-

@@ -1,7 +1,3 @@
-data = {}
+data = {"m": 234}
 
-if not data.get("m"):
-    print("hello")
-
-else:
-    print("byr")
+print(data["m"])

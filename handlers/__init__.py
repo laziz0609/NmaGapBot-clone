@@ -1,9 +1,6 @@
-from . import admins, users, groups, chenels
+from . import users
 
 # ❗ Tartib bo‘yicha: admin birinchi, user keyin
 routers = [
-    *admins.routers,
     *users.routers,
-    *groups.routers,
-    *chenels.routers,
 ]
